@@ -1,0 +1,26 @@
+dist: xenial
+language: cpp
+before_script:
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt update
+  - sudo apt -y install gcc-7 g++-7 libboost-test-dev doxygen graphviz
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 1
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 1
+script:
+  - cmake .
+  - cmake --build . -- VERBOSE=1
+  - cmake --build . --target test -- VERBOSE=1
+  - cmake --build . --target package -- VERBOSE=1
+  - doxygen ./Doxyfile
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script:
+      - curl -T bulk-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -u0xadb:$BINTRAY_API_KEY "https://api.bintray.com/content/0xadb/otus/homework/$TRAVIS_BUILD_NUMBER/bulk-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    keep-history: true
+    local-dir: ./html
+    on:
+      branch: master
