@@ -33,33 +33,75 @@ struct Processor : public IProcessor
 
   virtual void push(const Command& cmd) final
   {
-    _commands.push_back(cmd);
-    if (_commands.size() >= _N)
-      commit();
+    if (cmd.value == "{")
+    {
+      if (_level == 0)
+      {
+	if (!_commands.empty())
+	  commit();
+	_commands.emplace_back(std::vector<Command>());
+      }
+      ++_level;
+    }
+    else if (cmd.value == "}")
+    {
+      if (_level != 0)
+      {
+	if (--_level == 0 && _commands.size() == _N)
+	  commit();
+      }
+      else
+	throw std::runtime_error("syntax error: unexpected '}' at you know where... you gotta be... you'd better be.");
+    }
+    else if (_level != 0)
+    {
+      _commands.back().push_back(cmd);
+    }
+    else
+    {
+      _commands.emplace_back(std::vector<Command>{cmd});
+      if (_commands.size() == _N)
+	commit();
+    }
   }
 
   virtual void commit() final
   {
     if (!_receiver)
-      throw std::runtime_error("no receiver provided"); // is that better than checking _receiver repeatedly?
-
-    if (_commands.empty()) return;
-    _receiver->receive("bulk: ");
-    for (auto cIt = std::begin(_commands)
-	, cEndIt = std::end(_commands)
-	; cIt != cEndIt
-	; ++cIt
-	)
     {
-      if (cIt != std::begin(_commands))
-	_receiver->receive(", ");
-      _receiver->receive(cIt->_text.c_str());
+      _commands.clear();
+      return;
+      //throw std::runtime_error("no receiver provided"); // is that better than checking _receiver repeatedly?
     }
-    _receiver->flush();
+
+    if (_level != 0 && !_commands.empty())
+      _commands.pop_back();
+
+    if (_commands.empty())
+      return;
+
+    bool start = true;
+    for (const auto& v : _commands)
+    {
+      for (const auto& c : v)
+      {
+	if (!start)
+	  _receiver->receive(", ");
+	else
+	{
+	  _receiver->receive("bulk: ");
+	  start = false;
+	}
+	_receiver->receive(c.value.c_str());
+      }
+    }
+    if (!start)
+      _receiver->flush();
     _commands.clear();
   }
 
-  std::vector<Command> _commands{};
+  std::vector<std::vector<Command>> _commands{};
+  size_t _level = 0;
   size_t _N = 1;
   std::shared_ptr<IResultReceiver> _receiver;
 };
