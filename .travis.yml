@@ -11,7 +11,7 @@ script:
   - sudo chmod +x ./test_logging.py
   - cmake .
   - cmake --build . -- VERBOSE=1
-  - cmake --build . --target test -- VERBOSE=1; cat ./Testing/Temporary/*
+  - cmake --build . --target test -- VERBOSE=1 || cat ./Testing/Temporary/*
   - cmake --build . --target package -- VERBOSE=1
   - doxygen ./Doxyfile
 deploy:
