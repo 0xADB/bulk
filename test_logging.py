@@ -5,7 +5,7 @@ import pause
 from sys import exit
 from os import walk
 
-bulk = Popen(['./bulk','2'], stdin=PIPE)
+bulk = Popen(['./bulk','2'], bufsize=1, stdin=PIPE)
 
 interval = 1
 start = int(time.time()) + 2
@@ -48,9 +48,9 @@ for (dirpath, dirnames, filenames) in walk("./"):
             logs.append(f)
     break
 
-print "Expected log files: ", files
-print "Found log files   : ", logs
-if (files != logs):
+print "Expected log files: ", set(files)
+print "Found log files   : ", set(logs)
+if (set(files) != set(logs)):
     exit("Error: log lists mismatch")
 
 for i in range(0, len(files)):

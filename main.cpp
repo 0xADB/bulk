@@ -50,7 +50,12 @@ struct Printer : public IResultReceiver
       out.close();
     }
   }
-  virtual ~Printer(){}
+
+  virtual ~Printer()
+  {
+    if (out.is_open())
+      out.close();
+  }
   std::ofstream out;
 };
 
