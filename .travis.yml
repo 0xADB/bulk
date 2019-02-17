@@ -6,7 +6,7 @@ before_script:
   - sudo apt -y install gcc-7 g++-7 libboost-test-dev doxygen graphviz python-pip
   - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 1
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 1
-  - pip install pause
+  - sudo pip install pause
 script:
   - sudo chmod +x ./test_logging.py
   - cmake .
