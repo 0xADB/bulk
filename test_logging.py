@@ -6,32 +6,47 @@ from sys import exit
 
 bulk = Popen(['./bulk','2'], stdin=PIPE)
 
-commands = range(0, 9, 1)
-
 interval = 1
 start = int(time.time()) + 2
-stamps = range(start, start + 9 * interval, interval)
+commands = [
+        "{\n"
+        , "1\n"
+        , "2\n"
+        , "}\n"
+        , "3\n"
+        , "4\n"
+        , "{\n"
+        , "5\n"
+        , "}\n"
+        ]
+
+outputs = [
+        "bulk: 1, 2, 3\n"
+        , "bulk: 4\n"
+        , "bulk: 5\n"
+        ]
+
+files = [
+        "bulk%s.log" % (start + 1)
+        , "bulk%s.log" % (start + 5)
+        , "bulk%s.log" % (start + 7)
+        ]
+print files
+
+stamps = range(start, start + len(commands) * interval, interval)
 pause.until(start)
 
-for i in commands:
-    bulk.stdin.write("%d\n" % i)
+for i in range(0, len(commands)):
+    bulk.stdin.write(commands[i])
     pause.until(stamps[i] + interval)
 bulk.stdin.close()
 
-outputs = [
-        "bulk: %d, %d\n" % (commands[0], commands[1])
-        , "bulk: %d, %d\n" % (commands[2], commands[3])
-        , "bulk: %d, %d\n" % (commands[4], commands[5])
-        , "bulk: %d, %d\n" % (commands[6], commands[7])
-        , "bulk: %d\n" % (commands[8])
-        ]
-
-for i in range(0, 5, 1):
+for i in range(0, len(files)):
     try:
-        print "testing bulk%d.log" % stamps[i * 2]
-        with open("bulk%d.log" % stamps[i * 2]) as f:
+        print "testing %s" % files[i]
+        with open(files[i]) as f:
             s = f.readline()
             if (s != outputs[i]):
-                exit("Error: bulk%d.log:\n\t'%s'\nvs\n\t'%s'\nexpected" % (stamps[i], s, outputs[i]));
+                exit("Error: %s:\n\t'%s'\nvs\n\t'%s'\nexpected" % (files[i], s, outputs[i]));
     except IOError:
-        exit("bulk%s.log is not found" % stamps[i]);
+        exit("%s is not found" % files[i]);
