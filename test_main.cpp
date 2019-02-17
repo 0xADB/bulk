@@ -8,7 +8,7 @@ using namespace std::string_literals;
 
 struct Resulter : public IResultReceiver
 {
-  virtual void receive(const char * result) final
+  virtual void receive(time_t, const char * result) final
   {
     _result << result;
   }

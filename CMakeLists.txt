@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.2)
 
 project(bulk VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
+find_program(PYTHON_EXECUTABLE python /usr/bin /bin /usr/local/bin)
+message(STATUS "PYTHON_EXECUTABLE: ${PYTHON_EXECUTABLE}")
+
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 configure_file(version.h.in autoversion.h)
@@ -59,3 +62,7 @@ include(CPack)
 enable_testing()
 
 add_test(bulk_tests test_bulk)
+add_test(NAME logging_tests
+  COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/test_logging.py
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+  )

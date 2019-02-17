@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <chrono>
 
 // ----------------------------------------------------------------------------
 
@@ -55,11 +56,15 @@ struct Processor : public IProcessor
     }
     else if (_level != 0)
     {
+      if (_commands.back().empty() && _blocktime == std::chrono::system_clock::time_point())
+	_blocktime = std::chrono::system_clock::now();
       _commands.back().push_back(cmd);
     }
     else
     {
       _commands.emplace_back(std::vector<Command>{cmd});
+      if (_blocktime == std::chrono::system_clock::time_point())
+	_blocktime = std::chrono::system_clock::now();
       if (_commands.size() == _N)
 	commit();
     }
@@ -86,23 +91,25 @@ struct Processor : public IProcessor
       for (const auto& c : v)
       {
 	if (!start)
-	  _receiver->receive(", ");
+	  _receiver->receive(0, ", ");
 	else
 	{
-	  _receiver->receive("bulk: ");
+	  _receiver->receive(std::chrono::system_clock::to_time_t(_blocktime), "bulk: ");
 	  start = false;
 	}
-	_receiver->receive(c.value.c_str());
+	_receiver->receive(0, c.value.c_str());
       }
     }
     if (!start)
       _receiver->flush();
     _commands.clear();
+    _blocktime = std::chrono::system_clock::time_point();
   }
 
   std::vector<std::vector<Command>> _commands{};
   size_t _level = 0;
   size_t _N = 1;
+  std::chrono::system_clock::time_point _blocktime{};
   std::shared_ptr<IResultReceiver> _receiver;
 };
 

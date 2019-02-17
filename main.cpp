@@ -3,22 +3,55 @@
 #include "processor.h"
 
 #include <iostream>
+#include <sstream>
 #include <cstdlib>
 #include <cstring>
+#include <fstream>
+#include <chrono>
+#include <stdint.h>
+#ifndef __STDC_FORMAT_MACROS
+#  define __STDC_FORMAT_MACROS 1
+#endif
+#include <inttypes.h>
 
 // ----------------------------------------------------------------------------
 
 struct Printer : public IResultReceiver
 {
-  virtual void receive(const char * result) final
+  void open(time_t time)
   {
-    std::cout << result;
+    std::vector<char> name(4 + std::numeric_limits<uint64_t>::digits10 + 4 + 1); // "bulk1517223860.log"
+    std::snprintf(
+	name.data()
+	, name.size()
+	, "bulk%" PRIu64 ".log"
+	, static_cast<uint64_t>(time)
+	);
+    name.back() = 0;
+    out.open(name.data());
+    if (!out.is_open())
+      throw std::runtime_error(std::string("unable to open") + " " + name.data());
   }
+
+  virtual void receive(time_t time, const char * result) final
+  {
+    if (!out.is_open())
+      open(time);
+    std::cout << result;
+    out << result;
+  }
+
   virtual void flush() final
   {
     std::cout << std::endl;
+    if (out.is_open())
+    {
+      out << std::endl;
+      out.close();
+    }
   }
   virtual ~Printer(){}
+  std::ofstream out;
 };
 
 // ----------------------------------------------------------------------------
