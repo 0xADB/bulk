@@ -8,6 +8,7 @@ before_script:
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 1
   - pip install pause
 script:
+  - sudo chmod +x ./test_logging.py
   - cmake .
   - cmake --build . -- VERBOSE=1
   - cmake --build . --target test -- VERBOSE=1
