@@ -2,6 +2,8 @@
 
 #include "processor.h"
 #include <memory>
+#include <iostream>
+#include <chrono>
 
 // ----------------------------------------------------------------------------
 
@@ -17,8 +19,9 @@ struct Reader
     std::string cmd;
     while(std::getline(stream, cmd))
     {
+      auto cmdtime = std::chrono::system_clock::now();
       for (auto p : _processors)
-	p->push(Command{cmd});
+	p->push(cmdtime, Command{cmd});
     }
     for (auto p : _processors)
       p->commit();
