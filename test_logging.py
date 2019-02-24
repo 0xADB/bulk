@@ -22,14 +22,14 @@ commands = [
         ]
 
 outputs = [
-        "bulk: 1, 2, 3\n"
-        , "bulk: 4\n"
-        , "bulk: 5\n"
+        "bulk: 1, 2"
+        , "bulk: 3, 4"
+        , "bulk: 5"
         ]
 
 files = [
         "bulk%s.log" % (start + 1)
-        , "bulk%s.log" % (start + 5)
+        , "bulk%s.log" % (start + 4)
         , "bulk%s.log" % (start + 7)
         ]
 
