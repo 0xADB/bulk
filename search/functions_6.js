@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['open',['open',['../structPrinter.html#ad62dd7cf517b6108af6888a48a660156',1,'Printer']]]
+  ['open',['open',['../structFilePrinter.html#a8fce43509e3c8bf0bc7c1ca16bb70a7f',1,'FilePrinter']]]
 ];

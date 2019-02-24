@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['iprocessor',['IProcessor',['../structIProcessor.html',1,'']]],
-  ['iresultreceiver',['IResultReceiver',['../structIResultReceiver.html',1,'']]]
+  ['command',['Command',['../structCommand.html',1,'']]],
+  ['consoleprinter',['ConsolePrinter',['../structConsolePrinter.html',1,'']]]
 ];

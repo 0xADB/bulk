@@ -1,4 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structIProcessor.html" title="IProcessor" alt="" coords="5,5,93,32"/>
-<area shape="rect" id="node2" href="$structProcessor.html" title="Processor" alt="" coords="141,5,227,32"/>
+<area shape="rect" id="node1" href="$structIProcessor.html" title="IProcessor" alt="" coords="5,81,93,108"/>
+<area shape="rect" id="node2" href="$structAccumulator.html" title="Accumulator" alt="" coords="147,5,250,32"/>
+<area shape="rect" id="node3" href="$structConsolePrinter.html" title="ConsolePrinter" alt="" coords="141,56,256,83"/>
+<area shape="rect" id="node4" href="$structFilePrinter.html" title="FilePrinter" alt="" coords="157,107,241,133"/>
+<area shape="rect" id="node5" href="$structResulter.html" title="Resulter" alt="" coords="162,157,235,184"/>
 </map>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['printer',['Printer',['../structPrinter.html',1,'']]],
-  ['processor',['Processor',['../structProcessor.html',1,'']]]
+  ['fileprinter',['FilePrinter',['../structFilePrinter.html',1,'']]]
 ];

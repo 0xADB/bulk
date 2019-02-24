@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['command',['Command',['../structCommand.html',1,'']]]
+  ['accumulator',['Accumulator',['../structAccumulator.html',1,'']]]
 ];

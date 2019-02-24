@@ -1,5 +1,8 @@
 <map id="processor.h" name="processor.h">
-<area shape="rect" id="node2" href="$reader_8h.html" title="reader.h" alt="" coords="77,80,151,107"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title="main.cpp" alt="" coords="5,155,87,181"/>
-<area shape="rect" id="node4" href="$test__main_8cpp.html" title="test_main.cpp" alt="" coords="124,155,237,181"/>
+<area shape="rect" id="node2" href="$accumulator_8h.html" title="accumulator.h" alt="" coords="383,80,496,107"/>
+<area shape="rect" id="node4" href="$test__main_8cpp.html" title="test_main.cpp" alt="" coords="383,155,496,181"/>
+<area shape="rect" id="node5" href="$console__printer_8h.html" title="console_printer.h" alt="" coords="129,80,259,107"/>
+<area shape="rect" id="node6" href="$file__printer_8h.html" title="file_printer.h" alt="" coords="5,80,105,107"/>
+<area shape="rect" id="node7" href="$reader_8h.html" title="reader.h" alt="" coords="283,80,358,107"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="main.cpp" alt="" coords="215,155,296,181"/>
 </map>
