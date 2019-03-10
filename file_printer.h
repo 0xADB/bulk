@@ -11,7 +11,7 @@
 
 // ----------------------------------------------------------------------------
 
-struct FilePrinter : public StreamPrinter
+struct FilePrinter : public IProcessor
 {
   std::vector<char> build_name(std::chrono::system_clock::time_point opening_time)
   {
@@ -26,7 +26,7 @@ struct FilePrinter : public StreamPrinter
     return name;
   }
 
-  void open(std::chrono::system_clock::time_point opening_time) final
+  void open(std::chrono::system_clock::time_point opening_time)
   {
     auto name = build_name(opening_time);
     out.open(name.data());
@@ -34,12 +34,39 @@ struct FilePrinter : public StreamPrinter
       throw std::runtime_error(std::string("unable to open") + " " + name.data());
   }
 
-  virtual void print(const std::string& text) final
+  virtual void push(std::chrono::system_clock::time_point cmdtime, const std::vector<Command>& cmds) final
   {
-    out << text;
+    if (!cmds.empty())
+    {
+      FilePrinter::commit();
+
+      auto name = build_name(cmdtime);
+      std::ofstream oss;
+      oss.open(name.data());
+      if (!oss.is_open())
+	throw std::runtime_error(std::string("unable to open") + " " + name.data());
+
+      auto cmdIt = std::begin(cmds);
+
+      oss << "bulk: " << cmdIt->value.c_str();
+      while (++cmdIt != std::end(cmds))
+	oss << ", " << cmdIt->value.c_str();
+    }
   }
 
-  virtual void close() final
+  virtual void push_one(std::chrono::system_clock::time_point cmdtime, const Command& cmd) final
+  {
+    if (!out.is_open())
+    {
+      open(cmdtime);
+      out << "bulk: ";
+    }
+    else
+      out << ", ";
+    out << cmd.value.c_str();
+  }
+
+  virtual void commit() final
   {
     if (out.is_open())
       out.close();
@@ -47,7 +74,7 @@ struct FilePrinter : public StreamPrinter
 
   virtual ~FilePrinter() final
   {
-    commit();
+    FilePrinter::commit();
   }
 
   std::ofstream out;
