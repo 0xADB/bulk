@@ -22,42 +22,23 @@ struct Accumulator : public IProcessor
     _processors.push_back(processor);
   }
 
-  virtual void push(std::chrono::system_clock::time_point cmdtime, const Command& cmd) final
+  virtual void push(std::chrono::system_clock::time_point cmdtime, const std::vector<Command>& cmds) final
   {
-    if (cmd.value == "{")
+    if (!cmds.empty())
     {
-      if (_level == 0)
-      {
-	if (!_commands.empty())
-	  commit();
-	_commands.emplace_back(std::vector<Command>());
-      }
-      ++_level;
+      commit();
+      for (auto& p : _processors)
+	p->push(cmdtime, cmds);
     }
-    else if (cmd.value == "}")
-    {
-      if (_level != 0)
-      {
-	if (--_level == 0)
-	  commit();
-      }
-      else
-	throw std::runtime_error("syntax error: unexpected '}' at you know where... you gotta be... you'd better be.");
-    }
-    else if (_level != 0)
-    {
-      if (_commands.back().empty() && _blocktime == std::chrono::system_clock::time_point())
-	_blocktime = cmdtime;
-      _commands.back().push_back(cmd);
-    }
-    else
-    {
-      _commands.emplace_back(std::vector<Command>{cmd});
-      if (_blocktime == std::chrono::system_clock::time_point())
-	_blocktime = cmdtime;
-      if (_commands.size() == _N)
-	commit();
-    }
+  }
+
+  virtual void push_one(std::chrono::system_clock::time_point cmdtime, const Command& cmd) final
+  {
+    _commands.emplace_back(Command{cmd});
+    if (_blocktime == std::chrono::system_clock::time_point())
+      _blocktime = cmdtime;
+    if (_commands.size() == _N)
+      commit();
   }
 
   virtual void commit() final
@@ -71,37 +52,19 @@ struct Accumulator : public IProcessor
       return;
     }
 
-    if (_level != 0 && !_commands.empty())
-      _commands.pop_back();
-
     if (_commands.empty())
       return;
 
-    bool sent_something = false; // to avoid commiting empty packets
-    for (const auto& v : _commands)
+    for (auto& p : _processors)
     {
-      if (!v.empty())
-      {
-	for (const auto& c : v)
-	{
-	  for (auto& p : _processors)
-	    p->push(_blocktime, c);
-	}
-	sent_something = true;
-      }
-    }
-
-    if (sent_something)
-    {
-      for (auto& p : _processors)
-	p->commit();
+      p->push(_blocktime, _commands);
+      p->commit();
     }
     _commands.clear();
     _blocktime = std::chrono::system_clock::time_point();
   }
 
-  std::vector<std::vector<Command>> _commands{};
-  size_t _level = 0;
+  std::vector<Command> _commands{};
   size_t _N = 1;
   std::chrono::system_clock::time_point _blocktime{};
   std::vector<std::shared_ptr<IProcessor>> _processors;

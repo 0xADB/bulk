@@ -1,6 +1,6 @@
 #pragma once
 
-#include "processor.h"
+#include "stream_printer.h"
 
 #include <iostream>
 #include <iomanip>
@@ -8,33 +8,21 @@
 
 // ----------------------------------------------------------------------------
 
-struct ConsolePrinter : public IProcessor
+struct ConsolePrinter : public StreamPrinter
 {
-  virtual void push(std::chrono::system_clock::time_point, const Command& cmd) final
+  virtual void open(std::chrono::system_clock::time_point) final
   {
-    if (!out.tellp())
-      out << "bulk: ";
-    else
-      out << ", ";
-    out << cmd.value.c_str();
   }
 
-  virtual void commit() final
+  virtual void print(const std::string& text) final
   {
-    if (out.tellp())
-    {
-      std::cout << out.str().c_str() << std::endl;;
-      out.str("");
-      out.clear();
-    }
+    std::cout << text.c_str();
   }
 
-  virtual ~ConsolePrinter()
+  virtual void close() final
   {
-    ConsolePrinter::commit();
+    std::cout << std::endl;
   }
-
-  std::ostringstream out;
 };
 
 // ----------------------------------------------------------------------------

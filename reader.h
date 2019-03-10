@@ -17,11 +17,37 @@ struct Reader
   void read(std::istream& stream)
   {
     std::string cmd;
+    int level = 0;
+    std::vector<Command> cmds;
+    auto cmdtime = std::chrono::system_clock::time_point();
     while(std::getline(stream, cmd))
     {
-      auto cmdtime = std::chrono::system_clock::now();
-      for (auto p : _processors)
-	p->push(cmdtime, Command{cmd});
+      if (cmd == "{")
+      {
+	level++;
+      }
+      else if (cmd == "}")
+      {
+	level--;
+	if (level == 0 && !cmds.empty())
+	{
+	  for (auto p : _processors)
+	    p->push(cmdtime, cmds);
+	  cmds.clear();
+	  cmdtime = std::chrono::system_clock::time_point();
+	}
+      }
+      else if (level)
+      {
+	if (cmdtime == std::chrono::system_clock::time_point())
+	  cmdtime = std::chrono::system_clock::now();
+	cmds.push_back(Command{cmd});
+      }
+      else
+      {
+	for (auto p : _processors)
+	  p->push_one(std::chrono::system_clock::now(), Command{cmd});
+      }
     }
     for (auto p : _processors)
       p->commit();
