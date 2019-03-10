@@ -1,5 +1,3 @@
 <map id="ConsolePrinter" name="ConsolePrinter">
-<area shape="rect" id="node2" href="$structStreamPrinter.html" title="StreamPrinter" alt="" coords="44,80,156,107"/>
-<area shape="rect" id="node3" href="$structIProcessor.html" title="IProcessor" alt="" coords="5,5,93,32"/>
-<area shape="rect" id="node4" href="$structIPrinter.html" title="IPrinter" alt="" coords="117,5,184,32"/>
+<area shape="rect" id="node2" href="$structIProcessor.html" title="IProcessor" alt="" coords="19,5,107,32"/>
 </map>

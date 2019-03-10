@@ -1,6 +1,7 @@
 var searchData=
 [
   ['_7eaccumulator',['~Accumulator',['../structAccumulator.html#acf852d54c07676e4ce42aad2da6e1bc7',1,'Accumulator']]],
+  ['_7econsoleprinter',['~ConsolePrinter',['../structConsolePrinter.html#a45ffe86b2349735c895301eb94c50c35',1,'ConsolePrinter']]],
   ['_7efileprinter',['~FilePrinter',['../structFilePrinter.html#a78a65a89a169a91694a2698122ffe4c6',1,'FilePrinter']]],
   ['_7eiprinter',['~IPrinter',['../structIPrinter.html#a94e42b620b8e0c2689fe40e6ea85daad',1,'IPrinter']]],
   ['_7eiprocessor',['~IProcessor',['../structIProcessor.html#a2ea6b0758e9b1c44a1f018e341e968c4',1,'IProcessor']]],

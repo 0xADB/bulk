@@ -99,9 +99,7 @@ Inheritance diagram for FilePrinter:</div>
 <div class="dyncontent">
 <div class="center"><img src="structFilePrinter__inherit__graph.png" border="0" usemap="#FilePrinter_inherit__map" alt="Inheritance graph"/></div>
 <map name="FilePrinter_inherit__map" id="FilePrinter_inherit__map">
-<area shape="rect" id="node2" href="structStreamPrinter.html" title="StreamPrinter" alt="" coords="44,80,156,107"/>
-<area shape="rect" id="node3" href="structIProcessor.html" title="IProcessor" alt="" coords="5,5,93,32"/>
-<area shape="rect" id="node4" href="structIPrinter.html" title="IPrinter" alt="" coords="117,5,184,32"/>
+<area shape="rect" id="node2" href="structIProcessor.html" title="IProcessor" alt="" coords="5,5,93,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -109,9 +107,7 @@ Collaboration diagram for FilePrinter:</div>
 <div class="dyncontent">
 <div class="center"><img src="structFilePrinter__coll__graph.png" border="0" usemap="#FilePrinter_coll__map" alt="Collaboration graph"/></div>
 <map name="FilePrinter_coll__map" id="FilePrinter_coll__map">
-<area shape="rect" id="node2" href="structStreamPrinter.html" title="StreamPrinter" alt="" coords="44,80,156,107"/>
-<area shape="rect" id="node3" href="structIProcessor.html" title="IProcessor" alt="" coords="5,5,93,32"/>
-<area shape="rect" id="node4" href="structIPrinter.html" title="IPrinter" alt="" coords="117,5,184,32"/>
+<area shape="rect" id="node2" href="structIProcessor.html" title="IProcessor" alt="" coords="5,5,93,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -119,37 +115,24 @@ Collaboration diagram for FilePrinter:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9489f7255e6c35c383c2517acba223ce"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#a9489f7255e6c35c383c2517acba223ce">build_name</a> (std::chrono::system_clock::time_point opening_time)</td></tr>
 <tr class="separator:a9489f7255e6c35c383c2517acba223ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cdbf9820c1b3f64a23b4d0d0758aecd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#a5cdbf9820c1b3f64a23b4d0d0758aecd">open</a> (std::chrono::system_clock::time_point opening_time) final</td></tr>
-<tr class="separator:a5cdbf9820c1b3f64a23b4d0d0758aecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51535b070ce7359f17f9e7ef94ba8c86"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#a51535b070ce7359f17f9e7ef94ba8c86">print</a> (const std::string &amp;text) final</td></tr>
-<tr class="separator:a51535b070ce7359f17f9e7ef94ba8c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a700c5a87031fc04eef84109e6a101e6c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#a700c5a87031fc04eef84109e6a101e6c">close</a> () final</td></tr>
-<tr class="separator:a700c5a87031fc04eef84109e6a101e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bcc0043415604103916f8659892a891"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#a3bcc0043415604103916f8659892a891">open</a> (std::chrono::system_clock::time_point opening_time)</td></tr>
+<tr class="separator:a3bcc0043415604103916f8659892a891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a001a2ec10ad551e030233283c5bb03a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#a001a2ec10ad551e030233283c5bb03a4">push</a> (std::chrono::system_clock::time_point cmdtime, const std::vector&lt; <a class="el" href="structCommand.html">Command</a> &gt; &amp;cmds) final</td></tr>
+<tr class="separator:a001a2ec10ad551e030233283c5bb03a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc857834e547b2886f67c2b273dd122"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#adcc857834e547b2886f67c2b273dd122">push_one</a> (std::chrono::system_clock::time_point cmdtime, const <a class="el" href="structCommand.html">Command</a> &amp;cmd) final</td></tr>
+<tr class="separator:adcc857834e547b2886f67c2b273dd122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29377336ccfece0fe913e15b0187f0c6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#a29377336ccfece0fe913e15b0187f0c6">commit</a> () final</td></tr>
+<tr class="separator:a29377336ccfece0fe913e15b0187f0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78a65a89a169a91694a2698122ffe4c6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#a78a65a89a169a91694a2698122ffe4c6">~FilePrinter</a> () final</td></tr>
 <tr class="separator:a78a65a89a169a91694a2698122ffe4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_structStreamPrinter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structStreamPrinter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structStreamPrinter.html">StreamPrinter</a></td></tr>
-<tr class="memitem:a58e8e33396cb48c73d7a74496eb70487 inherit pub_methods_structStreamPrinter"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structStreamPrinter.html#a58e8e33396cb48c73d7a74496eb70487">push</a> (std::chrono::system_clock::time_point cmdtime, const std::vector&lt; <a class="el" href="structCommand.html">Command</a> &gt; &amp;cmds) final</td></tr>
-<tr class="separator:a58e8e33396cb48c73d7a74496eb70487 inherit pub_methods_structStreamPrinter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1538b71face391c4fe00086e2e610cef inherit pub_methods_structStreamPrinter"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structStreamPrinter.html#a1538b71face391c4fe00086e2e610cef">push_one</a> (std::chrono::system_clock::time_point cmdtime, const <a class="el" href="structCommand.html">Command</a> &amp;cmd)</td></tr>
-<tr class="separator:a1538b71face391c4fe00086e2e610cef inherit pub_methods_structStreamPrinter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a550ac61cf261d8605a3009fe98929594 inherit pub_methods_structStreamPrinter"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structStreamPrinter.html#a550ac61cf261d8605a3009fe98929594">commit</a> () final</td></tr>
-<tr class="separator:a550ac61cf261d8605a3009fe98929594 inherit pub_methods_structStreamPrinter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24662880773b16e4f7e47d89434cea9d inherit pub_methods_structStreamPrinter"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structStreamPrinter.html#a24662880773b16e4f7e47d89434cea9d">~StreamPrinter</a> ()</td></tr>
-<tr class="separator:a24662880773b16e4f7e47d89434cea9d inherit pub_methods_structStreamPrinter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structIProcessor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structIProcessor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structIProcessor.html">IProcessor</a></td></tr>
 <tr class="memitem:a2ea6b0758e9b1c44a1f018e341e968c4 inherit pub_methods_structIProcessor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structIProcessor.html#a2ea6b0758e9b1c44a1f018e341e968c4">~IProcessor</a> ()</td></tr>
 <tr class="separator:a2ea6b0758e9b1c44a1f018e341e968c4 inherit pub_methods_structIProcessor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_structIPrinter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structIPrinter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structIPrinter.html">IPrinter</a></td></tr>
-<tr class="memitem:a94e42b620b8e0c2689fe40e6ea85daad inherit pub_methods_structIPrinter"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structIPrinter.html#a94e42b620b8e0c2689fe40e6ea85daad">~IPrinter</a> ()</td></tr>
-<tr class="separator:a94e42b620b8e0c2689fe40e6ea85daad inherit pub_methods_structIPrinter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:aa12857ea9530cfe2389a88a48967d2a2"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFilePrinter.html#aa12857ea9530cfe2389a88a48967d2a2">out</a></td></tr>
 <tr class="separator:aa12857ea9530cfe2389a88a48967d2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_attribs_structStreamPrinter"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structStreamPrinter')"><img src="closed.png" alt="-"/>&#160;Data Fields inherited from <a class="el" href="structStreamPrinter.html">StreamPrinter</a></td></tr>
-<tr class="memitem:a35f6b7156b974e59c660da6ce66004f6 inherit pub_attribs_structStreamPrinter"><td class="memItemLeft" align="right" valign="top">std::ostringstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structStreamPrinter.html#a35f6b7156b974e59c660da6ce66004f6">_oss</a></td></tr>
-<tr class="separator:a35f6b7156b974e59c660da6ce66004f6 inherit pub_attribs_structStreamPrinter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a78a65a89a169a91694a2698122ffe4c6"></a>
@@ -200,7 +183,7 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a700c5a87031fc04eef84109e6a101e6c"></a>
+<a class="anchor" id="a29377336ccfece0fe913e15b0187f0c6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -208,7 +191,7 @@ Data Fields</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void FilePrinter::close </td>
+          <td class="memname">virtual void FilePrinter::commit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -221,11 +204,11 @@ Data Fields</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="structIPrinter.html#a1ba934a8dda8f0b04d18f2ba48dc7c16">IPrinter</a>.</p>
+<p>Implements <a class="el" href="structIProcessor.html#a1f4c869a9774396efb6646231d9cc872">IProcessor</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5cdbf9820c1b3f64a23b4d0d0758aecd"></a>
+<a class="anchor" id="a3bcc0043415604103916f8659892a891"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -242,16 +225,14 @@ Data Fields</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="structIPrinter.html#a6a4e3592703dcca2793f2463eb185f10">IPrinter</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a51535b070ce7359f17f9e7ef94ba8c86"></a>
+<a class="anchor" id="a001a2ec10ad551e030233283c5bb03a4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -259,11 +240,21 @@ Data Fields</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void FilePrinter::print </td>
+          <td class="memname">virtual void FilePrinter::push </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>text</em></td><td>)</td>
+          <td class="paramtype">std::chrono::system_clock::time_point&#160;</td>
+          <td class="paramname"><em>cmdtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structCommand.html">Command</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cmds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -273,7 +264,43 @@ Data Fields</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="structIPrinter.html#a1bda339184d107bc11c4670f0e1a26f7">IPrinter</a>.</p>
+<p>Implements <a class="el" href="structIProcessor.html#af2ed437b89b02f697f8c7f26b74138c4">IProcessor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adcc857834e547b2886f67c2b273dd122"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void FilePrinter::push_one </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::system_clock::time_point&#160;</td>
+          <td class="paramname"><em>cmdtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structCommand.html">Command</a> &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="structIProcessor.html#ac806c4f85dcdf6da9c6d6ef76dce2de3">IProcessor</a>.</p>
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 <map id="IProcessor" name="IProcessor">
 <area shape="rect" id="node2" href="$structAccumulator.html" title="Accumulator" alt="" coords="5,80,108,107"/>
-<area shape="rect" id="node3" href="$structStreamPrinter.html" title="StreamPrinter" alt="" coords="133,80,245,107"/>
-<area shape="rect" id="node4" href="$structConsolePrinter.html" title="ConsolePrinter" alt="" coords="7,155,122,181"/>
-<area shape="rect" id="node5" href="$structFilePrinter.html" title="FilePrinter" alt="" coords="147,155,231,181"/>
-<area shape="rect" id="node6" href="$structResulter.html" title="Resulter" alt="" coords="255,155,328,181"/>
+<area shape="rect" id="node3" href="$structConsolePrinter.html" title="ConsolePrinter" alt="" coords="133,80,247,107"/>
+<area shape="rect" id="node4" href="$structFilePrinter.html" title="FilePrinter" alt="" coords="272,80,356,107"/>
+<area shape="rect" id="node5" href="$structStreamPrinter.html" title="StreamPrinter" alt="" coords="381,80,493,107"/>
+<area shape="rect" id="node6" href="$structResulter.html" title="Resulter" alt="" coords="400,155,473,181"/>
 </map>
