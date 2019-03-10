@@ -1,9 +1,10 @@
 <map id="command.h" name="command.h">
-<area shape="rect" id="node2" href="$processor_8h.html" title="processor.h" alt="" coords="273,80,369,107"/>
-<area shape="rect" id="node3" href="$accumulator_8h.html" title="accumulator.h" alt="" coords="383,155,496,181"/>
-<area shape="rect" id="node5" href="$test__main_8cpp.html" title="test_main.cpp" alt="" coords="383,229,496,256"/>
-<area shape="rect" id="node6" href="$console__printer_8h.html" title="console_printer.h" alt="" coords="129,155,259,181"/>
-<area shape="rect" id="node7" href="$file__printer_8h.html" title="file_printer.h" alt="" coords="5,155,105,181"/>
-<area shape="rect" id="node8" href="$reader_8h.html" title="reader.h" alt="" coords="283,155,358,181"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="main.cpp" alt="" coords="215,229,296,256"/>
+<area shape="rect" id="node2" href="$processor_8h.html" title="processor.h" alt="" coords="160,80,256,107"/>
+<area shape="rect" id="node3" href="$accumulator_8h.html" title="accumulator.h" alt="" coords="105,155,218,181"/>
+<area shape="rect" id="node5" href="$test__main_8cpp.html" title="test_main.cpp" alt="" coords="147,229,261,256"/>
+<area shape="rect" id="node6" href="$stream__printer_8h.html" title="stream_printer.h" alt="" coords="293,155,421,181"/>
+<area shape="rect" id="node9" href="$reader_8h.html" title="reader.h" alt="" coords="5,155,80,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="main.cpp" alt="" coords="189,304,270,331"/>
+<area shape="rect" id="node7" href="$console__printer_8h.html" title="console_printer.h" alt="" coords="285,229,416,256"/>
+<area shape="rect" id="node8" href="$file__printer_8h.html" title="file_printer.h" alt="" coords="439,229,539,256"/>
 </map>

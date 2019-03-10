@@ -121,8 +121,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a04f06aab1b05044fbf09082e6b3bca4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c048800ef4050e040033b8dbc054ff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#a1c048800ef4050e040033b8dbc054ff3">registerProcessor</a> (std::shared_ptr&lt; <a class="el" href="structIProcessor.html">IProcessor</a> &gt; processor)</td></tr>
 <tr class="separator:a1c048800ef4050e040033b8dbc054ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a726c496dcf37a6313b7c2a15445fa60f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#a726c496dcf37a6313b7c2a15445fa60f">push</a> (std::chrono::system_clock::time_point cmdtime, const <a class="el" href="structCommand.html">Command</a> &amp;cmd) final</td></tr>
-<tr class="separator:a726c496dcf37a6313b7c2a15445fa60f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd7997c9936db6fc5d5c8baf7d869a3e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#afd7997c9936db6fc5d5c8baf7d869a3e">push</a> (std::chrono::system_clock::time_point cmdtime, const std::vector&lt; <a class="el" href="structCommand.html">Command</a> &gt; &amp;cmds) final</td></tr>
+<tr class="separator:afd7997c9936db6fc5d5c8baf7d869a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19fd9e3aaab4a664d3a7b52229503be2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#a19fd9e3aaab4a664d3a7b52229503be2">push_one</a> (std::chrono::system_clock::time_point cmdtime, const <a class="el" href="structCommand.html">Command</a> &amp;cmd) final</td></tr>
+<tr class="separator:a19fd9e3aaab4a664d3a7b52229503be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb4671b43abb2c536ad43831152554a9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#afb4671b43abb2c536ad43831152554a9">commit</a> () final</td></tr>
 <tr class="separator:afb4671b43abb2c536ad43831152554a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structIProcessor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structIProcessor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structIProcessor.html">IProcessor</a></td></tr>
@@ -131,10 +133,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aa82437d6654f2f56985d00b6575419f4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="structCommand.html">Command</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#aa82437d6654f2f56985d00b6575419f4">_commands</a> {}</td></tr>
-<tr class="separator:aa82437d6654f2f56985d00b6575419f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89ef99003ecbd793f9560781bdde4be5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#a89ef99003ecbd793f9560781bdde4be5">_level</a> = 0</td></tr>
-<tr class="separator:a89ef99003ecbd793f9560781bdde4be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28266696c0179133d6ce0111d8313ecb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structCommand.html">Command</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#a28266696c0179133d6ce0111d8313ecb">_commands</a> {}</td></tr>
+<tr class="separator:a28266696c0179133d6ce0111d8313ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ab2abea495e909c6debeb533f7bc3f9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#a0ab2abea495e909c6debeb533f7bc3f9">_N</a> = 1</td></tr>
 <tr class="separator:a0ab2abea495e909c6debeb533f7bc3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96f012bf799ca64c34856b3dfe374014"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccumulator.html#a96f012bf799ca64c34856b3dfe374014">_blocktime</a> {}</td></tr>
@@ -249,7 +249,7 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a726c496dcf37a6313b7c2a15445fa60f"></a>
+<a class="anchor" id="afd7997c9936db6fc5d5c8baf7d869a3e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -258,6 +258,42 @@ Data Fields</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">virtual void Accumulator::push </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::system_clock::time_point&#160;</td>
+          <td class="paramname"><em>cmdtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structCommand.html">Command</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cmds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="structIProcessor.html#af2ed437b89b02f697f8c7f26b74138c4">IProcessor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a19fd9e3aaab4a664d3a7b52229503be2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Accumulator::push_one </td>
           <td>(</td>
           <td class="paramtype">std::chrono::system_clock::time_point&#160;</td>
           <td class="paramname"><em>cmdtime</em>, </td>
@@ -281,7 +317,7 @@ Data Fields</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="structIProcessor.html#a64aed66ffa2c510de1022f82df5848a2">IProcessor</a>.</p>
+<p>Implements <a class="el" href="structIProcessor.html#ac806c4f85dcdf6da9c6d6ef76dce2de3">IProcessor</a>.</p>
 
 </div>
 </div>
@@ -322,24 +358,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa82437d6654f2f56985d00b6575419f4"></a>
+<a class="anchor" id="a28266696c0179133d6ce0111d8313ecb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="structCommand.html">Command</a>&gt; &gt; Accumulator::_commands {}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a89ef99003ecbd793f9560781bdde4be5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Accumulator::_level = 0</td>
+          <td class="memname">std::vector&lt;<a class="el" href="structCommand.html">Command</a>&gt; Accumulator::_commands {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
